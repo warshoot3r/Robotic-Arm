@@ -45,7 +45,7 @@ class robot_arm:
         with open(file_location, 'r') as opened_file:
             print("Imported File")
             print(opened_file.read())
-            
+
     def move_arm_routine(self, number_of_times):
         print("Moving the routine name"+ ' ' + number_of_times + 'times')
         for number in range(int(number_of_times)) :
@@ -53,10 +53,48 @@ class robot_arm:
           print(self.move_list[number_of_moves[0]])
           if number_of_moves[0] == self.move_list[-1][0]:
            print('\n')
+
+def interactive_mode():
+        interactive_mode_robot = robot_arm("interactive_move")
+        contains_moves = 0
+        i = input("interactive? y or n")
+        if i == 'y':
+          print("enter interactive mode")
+          while(True):
+                print('Press 1 for Record\nPress 2 for play\nq to go back')
+                i = input()
+                if i == '1':
+                    contains_moves = 1
+                    print("entering record")
+                    while True:
+                     i = record_mode(interactive_mode_robot)
+                     if i == 1:
+                       break
+                elif i == '2':
+                    print("entering play mode")
+                    play_mode(interactive_mode_robot)
+                elif i == 'q':
+                  print("going back.")
+                  interactive_mode()
+        elif i == 'n' :
+            print('Ok exiting...')
+
+
+
+def record_mode(self):
+    print('\n type finish to end')
+    i = input("enter a value")
+    if i == 'finish':
+        return 1
+    self.add_moves(i)
+ 
+
+def play_mode(self):
+    self.print_moves()
+
+
 new = robot_arm("Move up")
-
 new.print_var()
-
 new.add_moves(30)
 new.add_moves(40)
 new.add_moves(50)
@@ -65,7 +103,7 @@ new.add_moves(60)
 new.print_moves()
 
 new.write_to_file("new")
-
 new.open_from_file("new")
-
 new.move_arm_routine("3")
+
+interactive_mode()
