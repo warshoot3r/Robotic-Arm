@@ -1,5 +1,5 @@
 import os
-
+import time
 class robot_arm:
     def __init__(self, movement_name):
         self.number_of_moves = 0
@@ -55,9 +55,12 @@ class robot_arm:
            print('\n')
 
 def interactive_mode():
+        print("#################################")
+        print("#########starting################")
+        print("#################################")
         interactive_mode_robot = robot_arm("interactive_move")
         contains_moves = 0
-        i = input("interactive? y or n")
+        i = input("interactive? y or n\n")
         if i == 'y':
           print("enter interactive mode")
           while(True):
@@ -73,6 +76,7 @@ def interactive_mode():
                 elif i == '2':
                     print("entering play mode")
                     play_mode(interactive_mode_robot)
+                    time.sleep(2)
                 elif i == 'q':
                   print("going back.")
                   interactive_mode()
@@ -82,12 +86,13 @@ def interactive_mode():
 
 
 def record_mode(self):
-    print('\n type finish to end')
-    i = input("enter a value")
+    print('\ntype finish to end')
+    i = input("enter a value\n")
     if i == 'finish':
         return 1
     self.add_moves(i)
- 
+    print("Ok.")
+
 
 def play_mode(self):
     self.print_moves()
