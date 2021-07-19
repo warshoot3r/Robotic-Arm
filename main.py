@@ -60,4 +60,7 @@ new.print_moves()
 
 
 new.write_to_file("new")
+
 new.open_from_file("new")
+
+#added
