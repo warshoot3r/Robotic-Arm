@@ -1,7 +1,9 @@
 import os
 import time
 from robot_class import robot_arm
-from interactive_node import interactive_mode, record_mode, play_mode
+from interactive_node import interactive_mode 
+from interactive_node import play_mode
+from interactive_node import record_mode
 
 
 

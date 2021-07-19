@@ -1,3 +1,5 @@
+import time
+import os
 class robot_arm:
     def __init__(self, movement_name):
         self.number_of_moves = 0
