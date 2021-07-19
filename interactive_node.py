@@ -32,6 +32,7 @@ def interactive_mode():
                   time.sleep(4)
                 elif i == 'L':
                   interactive_mode_robot.open_from_file("save.robot")
+                  time.sleep(4)
         elif i == 'n' :
             print('Ok exiting...')
             StopIteration

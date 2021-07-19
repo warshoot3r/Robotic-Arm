@@ -51,6 +51,7 @@ class robot_arm:
             file.write('\n')
             if(number_of_moves[0] == (self.move_list[-1][0])):
                 print("Exported File")
+                self.print_moves()
 
     def open_from_file(self, file_path):
         __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
@@ -58,6 +59,7 @@ class robot_arm:
         with open(file_location, 'r') as opened_file:
             print("Imported File")
             print(opened_file.read())
+        self.print_moves()
 
     def move_arm_routine(self, number_of_times):
         print("Moving the routine name"+ ' ' + number_of_times + 'times')
