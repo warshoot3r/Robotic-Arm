@@ -66,3 +66,4 @@ new.open_from_file("new")
 
 
 #addedfff
+new.open_from_file("new")
