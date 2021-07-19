@@ -64,22 +64,27 @@ def interactive_mode():
         if i == 'y':
           print("enter interactive mode")
           while(True):
-                print('Press 1 for Record\nPress 2 for play\nq to go back')
+                print('1.Press 1 for Record\n2.Press 2 for play\nq to go back\n3.press R to save\n4.press L to load')
                 i = input()
                 if i == '1':
                     contains_moves = 1
-                    print("entering record")
+                    print("entering record......")
                     while True:
                      i = record_mode(interactive_mode_robot)
                      if i == 1:
                        break
                 elif i == '2':
-                    print("entering play mode")
+                    print("entering play mode.....")
                     play_mode(interactive_mode_robot)
                     time.sleep(2)
                 elif i == 'q':
                   print("going back.")
                   interactive_mode()
+                elif i == 'R':
+                  interactive_mode_robot.write_to_file('save.robot')
+                  time.sleep(4)
+                elif i == 'L':
+                  interactive_mode_robot.open_from_file("save.robot")
         elif i == 'n' :
             print('Ok exiting...')
 
@@ -87,7 +92,7 @@ def interactive_mode():
 
 def record_mode(self):
     print('\ntype finish to end')
-    i = input("enter a value\n")
+    i = input("\nenter a value\n")
     if i == 'finish':
         return 1
     self.add_moves(i)
