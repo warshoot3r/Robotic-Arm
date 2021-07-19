@@ -16,10 +16,24 @@ class robot_arm:
     def add_moves(self, move_goal):
         self.move_list.append([self.number_of_moves, move_goal])
         self.number_of_moves += 1
+        #put the ROS states save here
+
+
+
+
+
+
+        #
         print("added a move goal")
 
     def print_moves(self):
         for number_of_moves in self.move_list:
+            #Put the ROS move codes here
+            
+            
+
+
+            #
             print(self.move_list[number_of_moves[0]] )
             if(number_of_moves[0] == (self.move_list[-1][0]) ): 
              print("printed all the move list now")    
