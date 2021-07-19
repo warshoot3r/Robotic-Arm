@@ -45,7 +45,14 @@ class robot_arm:
         with open(file_location, 'r') as opened_file:
             print("Imported File")
             print(opened_file.read())
-
+            
+    def move_arm_routine(self, number_of_times):
+        print("Moving the routine name"+ ' ' + number_of_times + 'times')
+        for number in range(int(number_of_times)) :
+         for number_of_moves in self.move_list:
+          print(self.move_list[number_of_moves[0]])
+          if number_of_moves[0] == self.move_list[-1][0]:
+           print('\n')
 new = robot_arm("Move up")
 
 new.print_var()
@@ -55,15 +62,10 @@ new.add_moves(40)
 new.add_moves(50)
 new.add_moves(60)
 
-
 new.print_moves()
-
 
 new.write_to_file("new")
 
 new.open_from_file("new")
 
-
-
-#addedfff
-new.open_from_file("new")
+new.move_arm_routine("3")
