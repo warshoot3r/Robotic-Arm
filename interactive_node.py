@@ -39,7 +39,7 @@ def interactive_mode():
 
 def record_mode(self):
     print('\ntype finish to end')
-    i = input("\nenter a value\n")
+    i = input("\nMove the arm in RVIS plan and execute. Then Press any key to remember the step\n")
     if i == 'finish':
         return 1
     self.add_moves(i)

@@ -7,11 +7,9 @@ class robot_arm:
         self.move_list = []
     
     def print_var(self):
-        print("printing the properties now")
-        print(
-            self.number_of_moves, self.movement_name
-          )
         print("printing the move list")
+        for move_values in self.move_list:
+            print(self.move_list[move_values[0]])
         
     def add_moves(self, move_goal):
         self.move_list.append([self.number_of_moves, move_goal])
@@ -48,23 +46,19 @@ class robot_arm:
         with open(full_saved_file_name, "w") as file:
          for number_of_moves in self.move_list:
             file.write( str(self.move_list[number_of_moves[0]][1]) )
-            file.write('\n')
+            if(number_of_moves != self.move_list[-1]):
+              file.write('\n')
             if(number_of_moves[0] == (self.move_list[-1][0])):
                 print("Exported File")
                 self.print_moves()
-
     def open_from_file(self, file_path):
         __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
         file_location =  __location__ + "/" + file_path + ".txt"
         with open(file_location, 'r') as opened_file:
             print("Imported File")
-            print(opened_file.read())
-        self.print_moves()
-
-    def move_arm_routine(self, number_of_times):
-        print("Moving the routine name"+ ' ' + number_of_times + 'times')
-        for number in range(int(number_of_times)) :
-         for number_of_moves in self.move_list:
-          print(self.move_list[number_of_moves[0]])
-          if number_of_moves[0] == self.move_list[-1][0]:
-           print('\n')
+            #print(opened_file.read())
+            count = 0
+            for lines in opened_file.readlines():
+                 print(count, str(lines))
+                 self.move_list.append([count,str(lines.strip())])
+                 count += 1
